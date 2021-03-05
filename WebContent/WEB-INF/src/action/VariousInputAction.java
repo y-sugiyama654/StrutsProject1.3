@@ -12,12 +12,14 @@ import org.apache.struts.action.ActionMapping;
 
 public class VariousInputAction extends Action {
 
-
-    //�L�����Z���{�^���������ꂽ���ǂ���������ʂɒm�点��Bean���i�[����ꍇ�̃L�[
     private static final String CANCEL = "isCancel";
 
         public ActionForward execute(ActionMapping mapping,
                 ActionForm form,HttpServletRequest request,HttpServletResponse response) throws Exception {
+
+            if(isCancelled(request)){
+                request.setAttribute(CANCEL,new Boolean(true));
+            }
 
         return mapping.findForward("various");
     }
